@@ -1,5 +1,7 @@
 <?php
-    $url = 'https://api.cosmos.bluesoft.com.br/gtins/7891910000197.json';
+    $gtin = $_GET['gtin'];
+    if ($gtin != "" && $gtin != null) {
+    $url = "https://api.cosmos.bluesoft.com.br/gtins/{$gtin}.json";
     $headers = array(
     "Content-Type: application/json",
     "X-Cosmos-Token: wyJ4nIG_pFcxc0GWfXNOLQ"
@@ -21,5 +23,7 @@
     }
 
     curl_close($curl);
-
+    } else {
+    echo 'gtin invalido';
+    }
 ?>
